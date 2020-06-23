@@ -1,6 +1,3 @@
-import java.time.LocalDateTime;
-import java.util.Comparator;
-
 /**
  * Table class which extends Inventory
  */
@@ -19,13 +16,7 @@ public class Table extends Inventory implements Comparable {
         breakCounter = 0;
     }
 
-    /**
-     * Constructor
-     *
-     * @param id     to be assigned
-     * @param status to be assigned
-     * @param time   to be assigned
-     */
+
     protected Table(String id, String status, Integer time) {
         super(id, status, time);
         breakCounter = 0;
@@ -62,16 +53,21 @@ public class Table extends Inventory implements Comparable {
     }
 
 
+
     @Override
+    /**
+     * Method to compare table times
+     * Helper for priority queue data structure
+     */
     public int compareTo(Object o) {
+
         if(this.getTime() < ((Table)o).getTime())
             return -1;
 
-        else if(this.getTime() == ((Table)o).getTime())
+        else if(this.getTime().equals(((Table) o).getTime()))
             return 0;
 
         else
             return 1;
-
     }
 }
